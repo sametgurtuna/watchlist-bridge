@@ -1,0 +1,8 @@
+{
+  "name": "netflix-letterboxd",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/core.test.mjs && node tests/background.test.mjs"
+  }
+}

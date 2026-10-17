@@ -1,0 +1,185 @@
+/* Elements injected into Letterboxd. Colours stay close to Letterboxd's own palette. */
+
+.lbnf-cta {
+  margin: 0 0 20px;
+}
+
+.lbnf-cta.lbnf-floating {
+  position: fixed;
+  right: 20px;
+  bottom: 90px;
+  z-index: 2147483000;
+  width: 220px;
+  margin: 0;
+  padding: 12px;
+  border-radius: 6px;
+  background: #2c3440;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.lbnf-play,
+.lbnf-search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none !important;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.lbnf-play {
+  background: #e50914;
+  color: #fff !important;
+}
+
+.lbnf-play:hover {
+  background: #f40612;
+}
+
+.lbnf-play svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.lbnf-search {
+  border: 1px solid #456;
+  color: #9ab !important;
+}
+
+.lbnf-search:hover {
+  border-color: #9ab;
+  color: #fff !important;
+}
+
+.lbnf-sub {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  margin: 6px 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #789;
+}
+
+.lbnf-sub a {
+  color: #9ab !important;
+}
+
+.lbnf-sub a:hover {
+  color: #fff !important;
+}
+
+/* Poster badge */
+
+.lbnf-host {
+  position: relative;
+}
+
+.lbnf-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #e50914;
+  color: #fff !important;
+  text-decoration: none !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  transition: transform 0.12s;
+}
+
+.lbnf-badge:hover {
+  transform: scale(1.1);
+}
+
+.lbnf-badge svg {
+  width: 11px;
+  height: 11px;
+  margin-left: 2px;
+  fill: currentColor;
+}
+
+/* Watchlist bar */
+
+.lbnf-chip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 40px;
+  margin: 0 0 16px;
+  padding: 6px 6px 6px 12px;
+  border-radius: 3px;
+  background: #2c3440;
+  color: #def;
+  font-size: 13px;
+}
+
+/* Stay above the ad banner at the bottom edge. */
+.lbnf-chip.lbnf-fixed {
+  position: fixed;
+  right: 20px;
+  bottom: 90px;
+  z-index: 2147483000;
+  margin: 0;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.lbnf-chip-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.lbnf-chip i {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+  border-radius: 50%;
+  background: #e50914;
+}
+
+.lbnf-chip i svg {
+  width: 10px;
+  height: 10px;
+  margin-left: 2px;
+  fill: #fff;
+}
+
+.lbnf-chip strong {
+  color: #fff;
+}
+
+.lbnf-chip-btn {
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 999px;
+  background: #456;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.lbnf-chip-btn:hover {
+  background: #567;
+}
+
+body.lbnf-only li.lbnf-scanned:not(.lbnf-has) {
+  display: none !important;
+}

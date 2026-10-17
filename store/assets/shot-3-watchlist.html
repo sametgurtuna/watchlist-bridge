@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="shared.css" />
+    <link rel="stylesheet" href="../../content/letterboxd.css" />
+    <style>
+      .lede {
+        max-width: none;
+      }
+      .lb {
+        padding: 26px 48px;
+        background: #14181c;
+        color: #9ab;
+        font-family: var(--sans);
+      }
+      .head {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 14px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #2c3440;
+        font: 600 12px/1 var(--sans);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .head span:last-child {
+        color: #678;
+        letter-spacing: 0.04em;
+        text-transform: none;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 14px 12px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .grid li > div {
+        width: 100%;
+      }
+      .dim li:not(.lbnf-has) {
+        opacity: 0.35;
+      }
+      .tip {
+        position: absolute;
+        z-index: 30;
+        padding: 6px 9px;
+        border-radius: 4px;
+        background: #e8edf2;
+        color: #14181c;
+        font: 600 12px/1 var(--sans);
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas">
+      <div class="eyebrow"><img src="../out/store-icon-128.png" alt="" />On your Letterboxd watchlist</div>
+      <h1>What’s on Netflix tonight? <em>It’s marked.</em></h1>
+      <p class="lede">Films you can stream get a play badge. Hit “Netflix only” to hide everything else and just pick one.</p>
+
+      <div class="browser">
+        <div class="bar">
+          <span class="lights"><i></i><i></i><i></i></span>
+          <div class="url"><b>letterboxd.com</b>/you/watchlist/</div>
+          <img class="ext" src="../out/store-icon-128.png" alt="" />
+        </div>
+        <div class="page lb">
+          <div class="head"><span>You want to see 48 films</span><span>Sort by: When added</span></div>
+          <div class="lbnf-chip">
+            <span class="lbnf-chip-text"><i data-play></i> <strong>5</strong>&nbsp;films on this page are on Netflix</span>
+            <button type="button" class="lbnf-chip-btn">Netflix only</button>
+          </div>
+          <ul class="grid">
+            <li class="lbnf-host lbnf-has"><div data-poster="Glass Harbor||5|0"></div><a class="lbnf-badge" data-play></a></li>
+            <li><div data-poster="Velvet Season||3|4"></div></li>
+            <li class="lbnf-host lbnf-has"><div data-poster="The Long Quiet||0|2"></div><a class="lbnf-badge" data-play></a></li>
+            <li><div data-poster="Dust Choir||4|3"></div></li>
+            <li><div data-poster="Overpass||6|5"></div></li>
+            <li class="lbnf-host lbnf-has"><div data-poster="Paper Lanterns||8|1"></div><a class="lbnf-badge" data-play></a></li>
+            <li><div data-poster="Little Comets||9|4"></div></li>
+            <li><div data-poster="Kingfisher Lane||2|5"></div></li>
+            <li><div data-poster="Brightwater||5|3"></div></li>
+            <li class="lbnf-host lbnf-has"><div data-poster="Midnight Ferry||1|4"></div><a class="lbnf-badge" data-play></a></li>
+            <li><div data-poster="The Ninth Orchard||7|2"></div></li>
+            <li><div data-poster="Low Tide Hotel||0|5"></div></li>
+            <li class="lbnf-host lbnf-has"><div data-poster="Salt &amp; Static||6|3"></div><a class="lbnf-badge" data-play></a></li>
+            <li><div data-poster="A House Made of Rain||2|0"></div></li>
+            <li><div data-poster="Tin Crown||4|1"></div></li>
+            <li><div data-poster="Northbound||3|2"></div></li>
+          </ul>
+          <div class="tip" style="left: 446px; top: 162px">Watch on Netflix</div>
+          <i data-cursor="423,136"></i>
+        </div>
+      </div>
+    </div>
+    <script src="shared.js"></script>
+  </body>
+</html>

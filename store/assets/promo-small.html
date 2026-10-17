@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="shared.css" />
+    <link rel="stylesheet" href="../../content/letterboxd.css" />
+    <style>
+      .tile {
+        position: relative;
+        width: 440px;
+        height: 280px;
+        overflow: hidden;
+        background:
+          radial-gradient(320px 240px at 100% 0%, rgba(255, 69, 87, 0.32), transparent 70%),
+          radial-gradient(300px 220px at 0% 100%, rgba(255, 165, 61, 0.2), transparent 70%),
+          #0e1115;
+      }
+      .logo {
+        position: absolute;
+        left: 34px;
+        top: 38px;
+        width: 72px;
+        height: 72px;
+      }
+      .name {
+        position: absolute;
+        left: 34px;
+        top: 128px;
+        color: #fff;
+        font: 600 36px/1 var(--serif);
+        letter-spacing: -0.015em;
+      }
+      .tag {
+        position: absolute;
+        left: 36px;
+        top: 178px;
+        color: var(--text);
+        font: 500 16px/1.35 var(--sans);
+      }
+      .tag b {
+        color: var(--amber);
+        font-weight: 700;
+      }
+      .stack {
+        position: absolute;
+        left: 368px;
+        top: 0;
+        margin: 0;
+        padding: 0;
+        transform: rotate(8deg);
+      }
+      .stack li {
+        position: absolute;
+        width: 84px;
+        list-style: none;
+      }
+      .stack .lbnf-badge {
+        width: 26px;
+        height: 26px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tile">
+      <ul class="stack">
+        <li class="lbnf-host" style="left: -10px; top: 22px"><div data-poster="Glass Harbor||5|0"></div><a class="lbnf-badge" data-play></a></li>
+        <li class="lbnf-host" style="left: -6px; top: 156px"><div data-poster="Paper Lanterns||8|1"></div></li>
+      </ul>
+      <img class="logo" src="../out/store-icon-128.png" alt="" />
+      <div class="name">Watchlist Bridge</div>
+      <div class="tag">Netflix <b>My List</b> → Letterboxd <b>watchlist</b></div>
+    </div>
+    <script src="shared.js"></script>
+  </body>
+</html>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="shared.css" />
+    <style>
+      .copy {
+        position: absolute;
+        left: 64px;
+        top: 96px;
+        width: 600px;
+      }
+      h1 {
+        font-size: 50px;
+      }
+      .match {
+        display: grid;
+        grid-template-columns: 1fr 44px 1fr;
+        align-items: center;
+        margin-top: 40px;
+        width: 600px;
+      }
+      .side {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        padding: 14px;
+        border-radius: 10px;
+        background: var(--surface);
+        box-shadow: inset 0 0 0 1px var(--line);
+      }
+      .side [data-poster] {
+        flex: none;
+        width: 58px;
+      }
+      .side small {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--muted);
+        font: 700 10px/1 var(--sans);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      .side b {
+        display: block;
+        color: #fff;
+        font: 600 19px/1.15 var(--serif);
+      }
+      .side span {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .arrow {
+        display: grid;
+        place-items: center;
+        color: var(--amber);
+        font: 600 26px/1 var(--sans);
+      }
+      .verified {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 16px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(46, 212, 122, 0.12);
+        color: var(--mint);
+        font: 600 14px/1 var(--sans);
+      }
+      .notes {
+        display: grid;
+        gap: 10px;
+        margin: 34px 0 0;
+        padding: 0;
+        list-style: none;
+        color: var(--text);
+        font-size: 16px;
+        line-height: 1.45;
+      }
+      .notes li {
+        position: relative;
+        padding-left: 22px;
+      }
+      .notes li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--amber);
+      }
+      .notes b {
+        color: #fff;
+        font-weight: 600;
+      }
+      .popup {
+        right: 92px;
+        top: 64px;
+        width: 360px;
+        height: 672px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas">
+      <div class="copy">
+        <div class="eyebrow"><img src="../out/store-icon-128.png" alt="" />Smart matching</div>
+        <h1>Works even when Netflix shows a <em>translated title.</em></h1>
+        <p class="lede">
+          Each film is checked against Letterboxd’s own link to the same Netflix title, so the right film lands on
+          your watchlist whatever language your profile uses.
+        </p>
+
+        <div class="match">
+          <div class="side">
+            <div data-poster="Le Long Silence||0|2"></div>
+            <div><small>Netflix · My List</small><b>Le Long Silence</b><span>French profile</span></div>
+          </div>
+          <div class="arrow">→</div>
+          <div class="side">
+            <div data-poster="The Long Quiet||0|2"></div>
+            <div><small>Letterboxd</small><b>The Long Quiet</b><span>2019 · watchlist</span></div>
+          </div>
+        </div>
+        <div class="verified">✓ Same Netflix title ID, verified</div>
+
+        <ul class="notes">
+          <li><b>Not sure?</b> It asks you instead of guessing, with the likely films to pick from.</li>
+          <li><b>TV shows</b> are skipped, since Letterboxd lists films.</li>
+        </ul>
+      </div>
+
+      <iframe class="popup" src="popup-demo.html?preset=review"></iframe>
+    </div>
+    <script src="shared.js"></script>
+  </body>
+</html>

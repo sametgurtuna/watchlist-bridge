@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="shared.css" />
+    <link rel="stylesheet" href="../../content/letterboxd.css" />
+    <style>
+      .lede {
+        max-width: none;
+      }
+      .lb {
+        background: #14181c;
+        color: #9ab;
+        font-family: var(--sans);
+      }
+      .lb-nav {
+        position: absolute;
+        inset: 0 0 auto;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 26px;
+        height: 54px;
+        padding: 0 48px;
+        color: #c8d4e0;
+        font: 600 12px/1 var(--sans);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+      .lb-nav .sp {
+        flex: 1;
+      }
+      .backdrop {
+        position: relative;
+        height: 250px;
+        overflow: hidden;
+      }
+      .backdrop [data-card] {
+        position: absolute;
+        inset: -40% -5% auto;
+        aspect-ratio: auto;
+        height: 180%;
+        border-radius: 0;
+        opacity: 0.5;
+      }
+      .backdrop [data-card] .ptitle {
+        display: none;
+      }
+      .backdrop::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(20, 24, 28, 0.1), #14181c 96%),
+          linear-gradient(90deg, #14181c, transparent 18%, transparent 82%, #14181c);
+      }
+      .film {
+        position: relative;
+        display: grid;
+        grid-template-columns: 210px 1fr 250px;
+        gap: 44px;
+        margin-top: -120px;
+        padding: 0 48px;
+      }
+      .film [data-poster] {
+        width: 210px;
+      }
+      h2 {
+        margin: 92px 0 6px;
+        color: #fff;
+        font: 700 40px/1 var(--serif);
+      }
+      .meta {
+        color: #9ab;
+        font-size: 15px;
+      }
+      .meta b {
+        color: #def;
+        font-weight: 600;
+      }
+      .tagline {
+        margin: 26px 0 10px;
+        color: #9ab;
+        font: 600 12px/1 var(--sans);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+      .syn {
+        max-width: 520px;
+        margin: 0;
+        color: #9ab;
+        font-size: 15px;
+        line-height: 1.6;
+      }
+      .side {
+        padding-top: 110px;
+      }
+      .wtw {
+        overflow: hidden;
+        border-radius: 3px;
+        background: #14181c;
+        box-shadow: inset 0 0 0 1px #2c3440;
+      }
+      .wtw h3 {
+        margin: 0;
+        padding: 9px 12px;
+        background: #283038;
+        color: #9ab;
+        font: 600 11px/1 var(--sans);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .wtw p {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0;
+        padding: 9px 12px;
+        border-top: 1px solid #2c3440;
+        color: #def;
+        font-size: 13px;
+      }
+      .wtw p i {
+        width: 22px;
+        height: 22px;
+        border-radius: 6px;
+        background: var(--s);
+      }
+      .wtw p span {
+        margin-left: auto;
+        padding: 2px 6px;
+        border-radius: 3px;
+        background: #2c3440;
+        color: #9ab;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas">
+      <div class="eyebrow"><img src="../out/store-icon-128.png" alt="" />On every Letterboxd film page</div>
+      <h1>See it on Letterboxd. <em>Play it on Netflix.</em></h1>
+      <p class="lede">
+        When a film is streaming on Netflix in your country, a “Watch on Netflix” button appears above Where to watch.
+      </p>
+
+      <div class="browser">
+        <div class="bar">
+          <span class="lights"><i></i><i></i><i></i></span>
+          <div class="url"><b>letterboxd.com</b>/film/glass-harbor/</div>
+          <img class="ext" src="../out/store-icon-128.png" alt="" />
+        </div>
+        <div class="page lb">
+          <div class="lb-nav"><span>Films</span><span>Lists</span><span>Members</span><span class="sp"></span><span>Search</span></div>
+          <div class="backdrop"><div data-card="||5|0"></div></div>
+          <div class="film">
+            <div data-poster="Glass Harbor|A film by Mara Ellison|5|0"></div>
+            <div>
+              <h2>Glass Harbor</h2>
+              <div class="meta"><b>2022</b> &nbsp;Directed by <b>Mara Ellison</b></div>
+              <div class="tagline">Every tide brings something back.</div>
+              <p class="syn">
+                A lighthouse keeper on a fading island finds letters washing ashore, each addressed to someone who
+                left decades ago. As the season turns, she starts answering them.
+              </p>
+            </div>
+            <div class="side">
+              <section class="lbnf-cta">
+                <a class="lbnf-play" data-play><span>Watch on Netflix</span></a>
+                <p class="lbnf-sub"><a class="lbnf-detail">Netflix title page</a><span>· From your Netflix list</span></p>
+              </section>
+              <div class="wtw">
+                <h3>Where to watch</h3>
+                <p style="--s: #c92a2a"><i></i>Netflix<span>PLAY</span></p>
+                <p style="--s: #3b7dd8"><i></i>Rent or buy<span>RENT</span></p>
+                <p style="--s: #8a63d2"><i></i>Another service<span>PLAY</span></p>
+              </div>
+            </div>
+          </div>
+          <i data-cursor="1000,262"></i>
+        </div>
+      </div>
+    </div>
+    <script src="shared.js"></script>
+  </body>
+</html>

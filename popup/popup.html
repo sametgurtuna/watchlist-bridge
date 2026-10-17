@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Watchlist Bridge</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand">
+        <img src="../icons/icon32.png" width="22" height="22" alt="" />
+        <div>
+          <div class="name">Watchlist Bridge</div>
+          <div class="tag">Netflix <span class="arrow">→</span> Letterboxd</div>
+        </div>
+      </div>
+      <span id="busy" class="busy" hidden>Syncing</span>
+    </header>
+
+    <section class="stats">
+      <div><strong id="n-added">0</strong><span>added</span></div>
+      <div><strong id="n-queue">0</strong><span>in queue</span></div>
+      <div><strong id="n-review">0</strong><span>to review</span></div>
+    </section>
+
+    <section class="scan">
+      <button id="scan" class="primary" type="button">Scan my Netflix list</button>
+      <p id="last-scan" class="muted">Films you add to My List on Netflix go to your Letterboxd watchlist automatically.</p>
+    </section>
+
+    <section id="review-section" hidden>
+      <h2>Needs review</h2>
+      <ul id="review" class="list"></ul>
+    </section>
+
+    <section id="recent-section" hidden>
+      <div class="section-head">
+        <h2>Recent activity</h2>
+        <button id="retry-all" class="link" type="button" hidden>Retry failed</button>
+      </div>
+      <ul id="recent" class="list"></ul>
+    </section>
+
+    <details class="settings">
+      <summary>Settings</summary>
+      <label><input type="checkbox" data-key="autoAdd" /> Add matched films without asking</label>
+      <label
+        ><input type="checkbox" data-key="trustLikely" /> Also add films whose title and year match exactly, even when
+        the Netflix link can't confirm it</label
+      >
+      <label><input type="checkbox" data-key="detectClicks" /> Catch "Add to My List" clicks on Netflix instantly</label>
+      <label><input type="checkbox" data-key="scanWatchlist" /> Mark films that are on Netflix in my Letterboxd watchlist</label>
+      <fieldset>
+        <legend>When I click Netflix on Letterboxd</legend>
+        <label><input type="radio" name="openMode" value="watch" /> Start playing right away</label>
+        <label><input type="radio" name="openMode" value="title" /> Open the film's Netflix page</label>
+      </fieldset>
+    </details>
+
+    <footer class="muted">Just stay signed in to Netflix and Letterboxd in this browser.</footer>
+
+    <template id="row">
+      <li class="row">
+        <div class="row-main">
+          <div class="row-title"></div>
+          <div class="row-sub"></div>
+        </div>
+        <span class="chip"></span>
+        <div class="row-actions"></div>
+      </li>
+    </template>
+
+    <script src="popup.js" type="module"></script>
+  </body>
+</html>

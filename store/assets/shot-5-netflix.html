@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="shared.css" />
+    <style>
+      .lede {
+        max-width: none;
+      }
+      .nf {
+        padding: 28px 48px;
+        background: #141414;
+        font-family: var(--sans);
+      }
+      .nf h2 {
+        margin: 0 0 18px;
+        color: #fff;
+        font: 700 26px/1 var(--sans);
+      }
+      .row {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 22px 10px;
+      }
+      .hover {
+        position: absolute;
+        z-index: 10;
+        left: 212px;
+        top: 52px;
+        width: 300px;
+        overflow: hidden;
+        border-radius: 6px;
+        background: #181818;
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.75);
+      }
+      .hover [data-card] {
+        border-radius: 0;
+      }
+      .info {
+        padding: 14px 16px 16px;
+      }
+      .btns {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+      .btns span {
+        display: grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        color: #fff;
+        font: 500 22px/1 var(--sans);
+      }
+      .btns .pl {
+        border-color: #fff;
+        background: #fff;
+        color: #141414;
+      }
+      .btns .pl svg {
+        width: 16px;
+        height: 16px;
+        margin-left: 3px;
+        fill: currentColor;
+      }
+      .btns .add {
+        border-color: #fff;
+        background: rgba(255, 255, 255, 0.12);
+      }
+      .btns .more {
+        margin-left: auto;
+        font-size: 18px;
+      }
+      .meta {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        color: #bcbcbc;
+        font-size: 13px;
+      }
+      .meta b {
+        color: #46d369;
+        font-weight: 600;
+      }
+      .meta i {
+        padding: 0 5px;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        color: #fff;
+        font-size: 11px;
+        font-style: normal;
+      }
+      .toast {
+        left: 48px;
+        bottom: 52px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas">
+      <div class="eyebrow"><img src="../out/store-icon-128.png" alt="" />On Netflix</div>
+      <h1>Hit “+ My List”. <em>It’s on Letterboxd too.</em></h1>
+      <p class="lede">The extension catches the click and adds the film to your Letterboxd watchlist in a few seconds.</p>
+
+      <div class="browser">
+        <div class="bar">
+          <span class="lights"><i></i><i></i><i></i></span>
+          <div class="url"><b>netflix.com</b>/browse/my-list</div>
+          <img class="ext" src="../out/store-icon-128.png" alt="" />
+        </div>
+        <div class="page nf">
+          <h2>My List</h2>
+          <div class="row">
+            <div data-card="Paper Lanterns||8|1"></div>
+            <div data-card="Glass Harbor||5|0"></div>
+            <div data-card="The Long Quiet||0|2"></div>
+            <div data-card="Midnight Ferry||1|4"></div>
+            <div data-card="Salt &amp; Static||6|3"></div>
+            <div data-card="Low Tide Hotel||2|5"></div>
+            <div data-card="Little Comets||9|4"></div>
+            <div data-card="Tin Crown||4|1"></div>
+            <div data-card="Overpass||3|3"></div>
+            <div data-card="Brightwater||7|0"></div>
+          </div>
+
+          <div class="hover">
+            <div data-card="Glass Harbor||5|0"></div>
+            <div class="info">
+              <div class="btns">
+                <span class="pl" data-play></span><span class="add">+</span><span>♡</span><span class="more"><svg viewBox="0 0 24 24" width="18" height="18"><path d="M6 9l6 6 6-6" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              </div>
+              <div class="meta"><b>New</b><i>13+</i><span>1h 52m</span><span>· Drama · Mystery</span></div>
+            </div>
+          </div>
+          <i data-cursor="290,250"></i>
+
+          <div class="toast" data-mark><span>Added to your Letterboxd watchlist: Glass Harbor</span></div>
+        </div>
+      </div>
+    </div>
+    <script src="shared.js"></script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Watchlist Bridge",
+  "short_name": "Watchlist Bridge",
+  "version": "1.0.0",
+  "description": "Films you add to My List on Netflix land on your Letterboxd watchlist, and Letterboxd films play on Netflix in one click.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Watchlist Bridge",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": ["storage", "scripting", "alarms"],
+  "host_permissions": ["https://www.netflix.com/*", "https://letterboxd.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.netflix.com/*"],
+      "js": ["content/netflix.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://letterboxd.com/*"],
+      "js": ["content/letterboxd.js"],
+      "css": ["content/letterboxd.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

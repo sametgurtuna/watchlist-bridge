@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Loads the real popup (markup, CSS, JS) with a fake chrome API and sample data.
+         Needs Chrome's --allow-file-access-from-files when opened from disk (store/render.py passes it). -->
+    <base href="../../popup/" />
+    <link rel="stylesheet" href="popup.css" />
+    <style>
+      body {
+        font-family: Inter, "Segoe UI", system-ui, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      const now = Date.now();
+      const min = 60000;
+      const film = (id, title, year, extra = {}) => ({
+        id: String(id),
+        title,
+        year,
+        nfTitle: title,
+        status: 'added',
+        slug: title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+        lbName: title,
+        lbYear: year,
+        match: 'verified',
+        updatedAt: now - 30 * min,
+        ...extra,
+      });
+      const older = ['Velvet Season', 'Kingfisher Lane', 'Dust Choir', 'Overpass', 'Little Comets', 'Brightwater'].map((t, i) =>
+        film(900 + i, t, 2014 + i, { updatedAt: now - (90 + i * 30) * min })
+      );
+
+      const PRESETS = {
+        hero: {
+          busy: true,
+          lastScan: { at: now - 2 * min, total: 38, fresh: 6 },
+          items: [
+            film(1, 'Glass Harbor', 2022, { status: 'adding', updatedAt: now - 2000 }),
+            film(2, 'The Long Quiet', 2019, { nfTitle: 'Le Long Silence', updatedAt: now - 1 * min }),
+            film(3, 'Paper Lanterns', 2021, { updatedAt: now - 1.5 * min }),
+            film(4, 'Midnight Ferry', 2018, { match: 'likely', updatedAt: now - 2 * min }),
+            film(5, 'Salt & Static', 2024, { updatedAt: now - 3 * min }),
+            { id: '6', title: 'Harbor Lights', year: 2023, isShow: true, status: 'notfound', updatedAt: now - 4 * min },
+            { id: '7', title: null, nfTitle: 'Tin Crown', status: 'queued', updatedAt: now - 1000 },
+            ...older,
+          ],
+        },
+        review: {
+          busy: false,
+          lastScan: { at: now - 65 * min, total: 41, fresh: 3 },
+          items: [
+            {
+              id: '10',
+              title: 'Northbound',
+              nfTitle: 'Rumbo al norte',
+              year: 2023,
+              status: 'review',
+              match: 'review',
+              slug: 'northbound-2023',
+              candidates: [
+                { slug: 'northbound-2023', name: 'Northbound', year: 2023, directors: ['Mara Ellison'] },
+                { slug: 'northbound-2021', name: 'Northbound', year: 2021, directors: ['Henrik Dahl'] },
+                { slug: 'northbound-road', name: 'Northbound Road', year: 2023, directors: ['June Okafor'] },
+              ],
+              updatedAt: now - 1 * min,
+            },
+            film(2, 'The Long Quiet', 2019, { nfTitle: 'Le Long Silence', updatedAt: now - 2 * min }),
+            film(3, 'Paper Lanterns', 2021, { nfTitle: 'Linternas de papel', updatedAt: now - 3 * min }),
+            { id: '6', title: 'Harbor Lights', year: 2023, isShow: true, status: 'notfound', updatedAt: now - 5 * min },
+            film(1, 'Glass Harbor', 2022, { updatedAt: now - 8 * min }),
+            ...older,
+          ],
+        },
+      };
+
+      const preset = PRESETS[new URLSearchParams(location.search).get('preset') || 'hero'];
+      const state = {
+        ...preset,
+        settings: { autoAdd: true, trustLikely: true, openMode: 'watch', scanWatchlist: true, detectClicks: true },
+      };
+      Object.defineProperty(window, 'chrome', {
+        configurable: true,
+        value: {
+          runtime: { sendMessage: async (m) => (m.type === 'popup:state' ? state : { ok: true }) },
+          storage: { onChanged: { addListener() {} } },
+        },
+      });
+
+      fetch('popup.html')
+        .then((r) => r.text())
+        .then((html) => {
+          const doc = new DOMParser().parseFromString(html, 'text/html');
+          doc.querySelectorAll('script').forEach((s) => s.remove());
+          document.body.innerHTML = doc.body.innerHTML;
+          const s = document.createElement('script');
+          s.type = 'module';
+          s.src = 'popup.js';
+          document.body.appendChild(s);
+        });
+    </script>
+  </body>
+</html>
